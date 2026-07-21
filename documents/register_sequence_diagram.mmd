@@ -1,0 +1,15 @@
+sequenceDiagram
+    actor User
+    participant Frontend
+    participant API
+    participant Backend
+    participant Database@{ "type": "database"}
+
+    User->>Frontend: bookworn.com/register
+    Frontend->>API: POST /auth/register { data }
+    API->>Backend: Validate user data
+    Backend->>Database: Store user data
+    Database-->>Backend: User created
+    Backend-->>API: Form JSON reponse
+    API-->>Frontend: 201 Reponse Created
+    Frontend-->>User: Redirect user
