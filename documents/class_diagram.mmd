@@ -1,0 +1,70 @@
+classDiagram
+    class User {
+        +UUID id
+        +String firstName
+        +String lastName
+        +String email
+        +String password
+        +Boolean isAdmin
+        +DateType created_at
+        +DateType updated_at
+        +register()
+        +login()
+        +get()
+        +create()
+        +delete()
+        +update()
+    }
+
+    class Business {
+        +UUID id
+        +String name
+        +String description
+        +String email
+        +Integer phone_number
+        +UUID user - user_id
+        +DateType created_at
+        +DateType updated_at
+        +get()
+        +create()
+        +delete()
+        +update()
+        +locations()
+    }
+
+    class Location {
+        +UUID id
+        +String name
+        +String capacity
+        +Float description
+        +UUID business - business_id
+        +UUID owner - user_id
+        +DateType created_at
+        +DateType updated_at
+        +get()
+        +create()
+        +update()
+        +delete()
+        +reservations()
+    }
+
+    class Reservation {
+        +UUID id
+        +UUID location_id
+        +UUID user_id
+        +String client_name
+        +DateType date
+        +String reason
+        +Int slot
+        +DateType created_at
+        +DateType updated_at
+        +get()
+        +create()
+        +update()
+        +delete()
+    }
+
+User..> Business: Owns
+User..>Location: Owns
+Business-->Location: Has
+Location-->Reservation: Has
