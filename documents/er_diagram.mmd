@@ -1,37 +1,40 @@
 erDiagram
     USER {
-        UUID id
+        uuid id
         string first_name
         string last_name
         string email
         string password
         bool is_admin
     }
-
     BUSINESS {
-        UUID id
+        uuid id
         string name
         string description
         string email
-        Integer phone_number
+        int phone_number
+        uuid user_id
     }
-
     LOCATION {
-        UUID id
+        uuid id
         string name
         string description
         int capacity
+        uuid user_id
+        uuid business_id
     }
-
     RESERVATION {
-        UUID id
+        uuid id
         string client_name
         string reason
         date date
         int slot
+        uuid user_id
+        uuid location_id
     }
 
     USER ||--o{ BUSINESS: owns
     USER ||--o{ LOCATION: owns
     BUSINESS ||--o{ LOCATION: has
     LOCATION ||--o{ RESERVATION: has
+
