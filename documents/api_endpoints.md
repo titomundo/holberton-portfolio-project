@@ -1,4 +1,6 @@
 # API Endpoints
+**Note:** All API endpoints listed here must have the following prefix: `api/v<api_version_number>/`. \
+For example: `/api/v1/auth/register`. 
 
 ## Auth Endpoints
 ### Register User
