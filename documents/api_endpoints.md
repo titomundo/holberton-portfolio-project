@@ -296,6 +296,7 @@ For example: `/api/v1/auth/register`.
         "Description": "Birthday Reservation",
         "date" "2026-07-23T18:25:43",
         "slot": 4,
+        "status": "pending",
         "business_id" "business_uuid"
     },
     ...
@@ -371,6 +372,7 @@ For example: `/api/v1/auth/register`.
     "Description": "Birthday Reservation",
     "date" "2026-07-23T18:25:43",
     "slot": 4,
+    "status": "pending"
     "business_id" "business_uuid"
 },
 ```
@@ -386,6 +388,7 @@ For example: `/api/v1/auth/register`.
     "Description": "Birthday Reservation",
     "date" "2026-07-23T18:25:43",
     "slot": 9,
+    "status": "cancelled"
 }
 ```
 **Response:**
