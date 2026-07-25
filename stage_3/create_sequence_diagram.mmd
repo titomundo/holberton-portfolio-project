@@ -1,0 +1,15 @@
+sequenceDiagram
+    actor User
+    participant Frontend
+    participant API
+    participant Backend
+    participant Database@{ "type": "database"}
+
+    User->>Frontend: bookworn.com/create/reservations
+    Frontend->>API: POST /reservations
+    API->>Backend: Validate credentials and data
+    Backend->>Database: Store reservation data
+    Database-->>Backend: Reservation created
+    Backend-->>API: Form JSON reponse
+    API-->>Frontend: 201 Reservation created
+    Frontend-->>User: Display data
