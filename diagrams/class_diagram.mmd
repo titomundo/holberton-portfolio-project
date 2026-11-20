@@ -8,12 +8,25 @@ classDiagram
         +Boolean isAdmin
         +DateType created_at
         +DateType updated_at
-        +register()
-        +login()
         +get()
         +create()
         +delete()
         +update()
+        +locations()
+        +businesses()
+        +as_dict()
+    }
+
+    class Role {
+        +UUID isAdmin
+        +String name
+        +String description
+        +get()
+        +create()
+        +delete()
+        +update()
+        +get_name()
+        +as_dict()
     }
 
     class Business {
@@ -30,6 +43,7 @@ classDiagram
         +delete()
         +update()
         +locations()
+        +as_dict()
     }
 
     class Location {
@@ -46,6 +60,8 @@ classDiagram
         +update()
         +delete()
         +reservations()
+        +users()
+        +as_dict()
     }
 
     class Reservation {
@@ -63,9 +79,11 @@ classDiagram
         +create()
         +update()
         +delete()
+        +as_dict()
     }
 
 User..> Business: Owns
 User..>Location: Owns
+User..Role: Has
 Business-->Location: Has
 Location-->Reservation: Has
